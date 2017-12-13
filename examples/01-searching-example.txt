@@ -1,0 +1,55 @@
+# Get all Indexes in the system
+GET /_cat/indices
+
+
+# Search the whole "companydatabase" index 
+# (by default, top 10 results found... sorted by default calculated relevance)
+GET /companydatabase/_search
+
+
+# "companydatabase" index fields mapping
+GET companydatabase/_mapping
+
+
+# (same result as above) - Employees type
+GET companydatabase/employees/_mapping
+
+
+
+# Search Lite
+# Find all female employees, sort by age ascending, return top 5
+GET /companydatabase/_search?q=Gender:female&pretty&sort=Age:asc&size=5
+
+# Example using CURL (without pretty parameter):
+# curl -XGET 'http://localhost:9200/companydatabase/_search?q=Gender:female&sort=Age:asc&size=5'
+#
+# With pretty parameter:
+# curl -XGET 'http://localhost:9200/companydatabase/_search?q=Gender:female&sort=Age:asc&size=5&pretty'
+
+
+
+# Query DSL
+GET /companydatabase/_search
+{
+  "size": 5,
+  "query": {
+    "term": {
+      "Gender": "female"
+    }
+  }
+}
+
+
+# Multi-field search
+GET /companydatabase/_search
+{
+  "size": 5,
+  "query": {
+    "bool": {
+      "must": [
+        {"match": {"Gender": "female"}},
+        {"match": {"Interests": "basketball"}}
+      ]
+    }
+  }
+}
