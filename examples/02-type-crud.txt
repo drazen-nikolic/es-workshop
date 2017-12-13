@@ -15,6 +15,11 @@ GET /website/blog/123
 # Retrieve non-existent document
 GET /website/blog/124
 
+# Check does document exists
+HEAD /website/blog/123
+
+HEAD /website/blog/124
+
 # Retrieve part of a document
 GET /website/blog/123?_source=title,text
 
