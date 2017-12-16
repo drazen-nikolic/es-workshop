@@ -64,3 +64,27 @@ GET /gb,us/user,tweet/_search
 
 # Search types user and tweet in all indices
 GET /_all/user,tweet/_search
+
+
+# PAGINATION
+GET /_search?size=5
+GET /_search?size=5&from=5
+GET /_search?size=5&from=10
+
+
+# SEARCH LIGHT
+GET /_all/tweet/_search?q=tweet:elasticsearch
+
+
+# Search Light Query (URL encoded):
+# +name:john +tweet:mary
+GET /_search?q=%2Bname%3Ajohn+%2Btweet%3Amary
+
+
+# The _all field
+GET /_search?q=mary
+
+
+# More complicated query
+# +name:(mary john) +date:>2014-09-10 +(aggregations geo)
+GET /_search?q=%2Bname%3A(mary+john)+%2Bdate%3A%3E2014-09-10+%2B(aggregations+geo)
