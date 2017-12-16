@@ -1,3 +1,5 @@
+# Insert some test data
+# into two different indexes
 POST /_bulk
 { "create": { "_index": "us", "_type": "user", "_id": "1" }}
 { "email" : "john@smith.com", "name" : "John Smith", "username" : "@john" }
@@ -27,3 +29,38 @@ POST /_bulk
 { "date" : "2014-09-23", "name" : "Mary Jones", "tweet" : "So yes, I am an Elasticsearch fanboy", "user_id" : 2 }
 { "create": { "_index": "us", "_type": "tweet", "_id": "14" }}
 { "date" : "2014-09-24", "name" : "John Smith", "tweet" : "How many more cheesy tweets do I have to write?", "user_id" : 1 }
+
+
+
+# The Empty search
+# Searches all data from all indexes
+GET /_search
+
+
+# By default, search requests do not timeout
+# but you can define if the request should timeout after some time
+GET /_search?timeout=10ms
+
+
+# Search all types in the gb index
+GET /gb/_search
+
+
+# Search all types in the gb and us indices
+GET /gb,us/_search
+
+
+# Search all types in any indices beginning with g or beginning with u
+GET /g*,u*/_search
+
+
+# Search type user in the gb index
+GET /gb/user/_search
+
+
+# Search types user and tweet in the gb and us indices
+GET /gb,us/user,tweet/_search
+
+
+# Search types user and tweet in all indices
+GET /_all/user,tweet/_search
