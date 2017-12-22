@@ -1,0 +1,54 @@
+# Analyzing texts with different analyzers
+GET _analyze
+{
+  "analyzer": "standard",
+  "text": "Text to analyze"
+}
+
+GET _analyze
+{
+  "analyzer": "whitespace",
+  "text": "Text to analyze"
+}
+
+GET _analyze
+{
+  "analyzer": "english",
+  "text": "Text to analyze"
+}
+
+# Using an "asciifolding" filter
+POST _analyze
+{
+  "tokenizer": "standard",
+  "filter":  [ "lowercase", "asciifolding" ],
+  "text":      "Is this déja vu?"
+}
+
+
+# Custom analyzers
+DELETE my_index
+
+PUT my_index
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "std_folded": { 
+          "type": "custom",
+          "tokenizer": "standard",
+          "filter": [
+            "lowercase",
+            "asciifolding"
+          ]
+        }
+      }
+    }
+  }
+}
+
+GET my_index/_analyze 
+{
+  "analyzer": "std_folded", 
+  "text":     "Is this déjà vu?"
+}

@@ -102,7 +102,7 @@ POST bank/account/_search
 
 
 # ----------------------------------
-# Geo-points search
+# Geo-points
 # ----------------------------------
 DELETE /museums
 
