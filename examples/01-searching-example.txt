@@ -1,6 +1,9 @@
 # Get all Indexes in the system
 GET /_cat/indices
 
+# ----------------------------------
+# Company Database
+# ----------------------------------
 
 # Search the whole "companydatabase" index 
 # (by default, top 10 results found... sorted by default calculated relevance)
@@ -53,3 +56,99 @@ GET /companydatabase/_search
     }
   }
 }
+
+
+# ----------------------------------
+# Server Metrics 
+# ----------------------------------
+
+# All documents ~1M documents
+GET server-metrics/metric/_search
+
+# Find all metrics for host "server_2"
+GET server-metrics/metric/_search?q=host:server_2
+
+# Find all metrics for host "server_2" with response times greather than 3 sec
+GET server-metrics/metric/_search?q=%2Bhost:server_2+%2Bresponse:>3.0
+
+
+
+# ----------------------------------
+# Bank accounts 
+# ----------------------------------
+
+# All documents
+GET bank/account/_search
+
+# Find all accounts with address in some "Avenue"
+GET bank/account/_search?q=address:avenue
+
+# Find an average account balance for persons between 20 and 30 years old
+POST bank/account/_search
+{
+  "size": 0, 
+  "query": {
+	"range" : {
+		"age" : {
+			"gte" : 20,
+			"lte" : 30
+		}
+	}
+    }, 
+    "aggs" : {
+        "avg_grade" : { "avg" : { "field" : "balance" } }
+    }
+}
+
+
+# ----------------------------------
+# Geo-points search
+# ----------------------------------
+DELETE /museums
+
+PUT /museums
+{
+    "mappings": {
+        "doc": {
+            "properties": {
+                "location": {
+                    "type": "geo_point"
+                }
+            }
+        }
+    }
+}
+
+POST /museums/doc/_bulk?refresh
+{"index":{"_id":1}}
+{"location": "52.374081,4.912350", "name": "NEMO Science Museum"}
+{"index":{"_id":2}}
+{"location": "52.369219,4.901618", "name": "Museum Het Rembrandthuis"}
+{"index":{"_id":3}}
+{"location": "52.371667,4.914722", "name": "Nederlands Scheepvaartmuseum"}
+{"index":{"_id":4}}
+{"location": "51.222900,4.405200", "name": "Letterenhuis"}
+{"index":{"_id":5}}
+{"location": "48.861111,2.336389", "name": "Musée du Louvre"}
+{"index":{"_id":6}}
+{"location": "48.860000,2.327000", "name": "Musée d'Orsay"}
+
+
+# Find the bounding box containing all geo_point values
+POST /museums/_search?size=0
+{
+    "query" : {
+        "match" : { "name" : "musée" }
+    },
+    "aggs" : {
+        "viewport" : {
+            "geo_bounds" : {
+                "field" : "location", 
+                "wrap_longitude" : true 
+            }
+        }
+    }
+}
+
+
+

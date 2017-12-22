@@ -1,0 +1,162 @@
+# View the mapping
+GET /gb/_mapping/tweet
+
+
+# ----------------------------------
+# Testing the mapping
+# ----------------------------------
+
+# Delete the `gb` index
+DELETE /gb
+
+# Specify mappings when creating the index
+PUT /gb
+{
+  "mappings": {
+    "tweet" : {
+      "properties" : {
+        "tweet" : {
+          "type" :    "text",
+          "analyzer": "english"
+        },
+        "date" : {
+          "type" :   "date"
+        },
+        "name" : {
+          "type" :   "text"
+        },
+        "user_id" : {
+          "type" :   "long"
+        }
+      }
+    }
+  }
+}
+
+# Update mappings on an existing index
+PUT /gb/_mapping/tweet
+{
+  "properties" : {
+    "tag" : {
+      "type" :    "keyword"
+    }
+  }
+}
+
+# Check new mapping
+GET /gb/_mapping/tweet
+
+# Test the analyzer for the `tweet` field
+GET /gb/_analyze
+{
+  "field": "tweet",
+  "text": "Black-cats"
+}
+
+# Test the analyzer for the `tag` field
+GET /gb/_analyze
+{
+  "field": "tag",
+  "text": "Black-cats"
+}
+
+
+# ----------------------------------
+# Multi-field
+# ----------------------------------
+
+# The city.raw field is a keyword version of the city field
+PUT my_index
+{
+  "mappings": {
+    "my_type": {
+      "properties": {
+        "city": {
+          "type": "text",
+          "fields": {
+            "raw": { 
+              "type":  "keyword"
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+PUT my_index/my_type/1
+{
+  "city": "New York"
+}
+
+PUT my_index/my_type/2
+{
+  "city": "York"
+}
+
+# The city field can be used for full text search.
+# The city.raw field can be used for sorting and aggregations
+GET my_index/_search
+{
+  "query": {
+    "match": {
+      "city": "york" 
+    }
+  },
+  "sort": {
+    "city.raw": "asc" 
+  },
+  "aggs": {
+    "Cities": {
+      "terms": {
+        "field": "city.raw" 
+      }
+    }
+  }
+}
+
+
+# Multi-fields with multiple analyzers
+# The text field uses the standard analyzer
+# The text.english field uses the english analyzer
+PUT my_index
+{
+  "mappings": {
+    "my_type": {
+      "properties": {
+        "text": { 
+          "type": "text",
+          "fields": {
+            "english": { 
+              "type":     "text",
+              "analyzer": "english"
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+# Index two documents, one with fox and the other with foxes
+PUT my_index/my_type/1
+{ "text": "quick brown fox" } 
+
+PUT my_index/my_type/2
+{ "text": "quick brown foxes" } 
+
+
+# Query both the text and text.english fields and combine the scores
+GET my_index/_search
+{
+  "query": {
+    "multi_match": {
+      "query": "quick brown foxes",
+      "fields": [ 
+        "text",
+        "text.english"
+      ],
+      "type": "most_fields" 
+    }
+  }
+}
