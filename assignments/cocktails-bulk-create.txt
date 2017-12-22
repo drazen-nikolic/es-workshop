@@ -1,0 +1,21 @@
+POST /_bulk
+{ "create": { "_index": "drinks", "_type": "cocktail", "_id" : "1" }}
+{"name" : "Dirty Martini", "ingredients": "gin or vodka, vermouth, olive brine", "glass":"cocktail", "strength":"strong", "garnish":"olives"}
+{ "create": { "_index": "drinks", "_type": "cocktail", "_id" : "2" }}
+{"name" : "Dry Martini", "ingredients": "gin, vermouth, orange bitters", "glass":"cocktail", "strength":"strong", "garnish":"lemon"}
+{ "create": { "_index": "drinks", "_type": "cocktail", "_id" : "3" }}
+{"name" : "Manhattan", "ingredients": "whiskey, vermouth, bitters", "glass":"cocktail", "strength":"medium", "garnish":"cherry"}
+{ "create": { "_index": "drinks", "_type": "cocktail", "_id" : "4" }}
+{"name" : "Bloody Mary", "ingredients": "lemon, lime, vodka, tomato juice, tabasco sauce, horseradish, celery, black pepper, smoked paprika", "glass":"pint", "strength":"light", "garnish":"celery, lime"}
+{ "create": { "_index": "drinks", "_type": "cocktail", "_id" : "5" }}
+{"name" : "Margarita", "ingredients": "lime juice, orange liquer, blanco tequila, salt", "glass":"rocks", "strength":"medium", "garnish":"lime"}
+{ "create": { "_index": "drinks", "_type": "cocktail", "_id" : "6" }}
+{"name" : "Black Widow", "ingredients": "blackberries, basil leaed, blanco tequila, lime juice", "glass":"cocktail", "strength":"strong", "garnish":"blackberry"}
+{ "create": { "_index": "drinks", "_type": "cocktail", "_id" : "7" }}
+{"name" : "Mojito", "ingredients": "mint leaves, syrup, lime juice, white rum, club soda", "glass":"regular", "strength":"medium", "garnish":"mint"}
+{ "create": { "_index": "drinks", "_type": "cocktail", "_id" : "8" }}
+{"name" : "Blue Lagoon", "ingredients": "vodka, blue curacao liquer, lemonade", "glass":"regular", "strength":"medium", "garnish":"cherry"}
+{ "create": { "_index": "drinks", "_type": "cocktail", "_id" : "9" }}
+{"name" : "Cosmopolitan", "ingredients": "vodka, cointreau, lime juice, cranberry juice", "glass":"cocktail", "strength":"strong", "garnish":"olives"}
+{ "create": { "_index": "drinks", "_type": "cocktail", "_id" : "10" }}
+{"name" : "Sex on the Beach", "ingredients": "vodka, peach schnapps, cranberry juice, orange juice", "glass":"Hurricane", "strength":"medium", "garnish":"none"}
