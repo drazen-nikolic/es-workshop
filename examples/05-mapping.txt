@@ -66,6 +66,8 @@ GET /gb/_analyze
 # ----------------------------------
 
 # The city.raw field is a keyword version of the city field
+DELETE my_index
+
 PUT my_index
 {
   "mappings": {
