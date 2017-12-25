@@ -4,7 +4,7 @@
 
 The goal of this assignment is to get familiar with Elasticsearch Query DSL.
 
-## Twitter Watcher
+## Searching Tweets
 
 Withing many tweets, implement various queries to monitor - watch what people
 are tweeting about. 
