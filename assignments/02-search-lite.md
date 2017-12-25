@@ -89,7 +89,7 @@ The indexed documents has all fields of type `text` and their descriptions are a
 
 ### Guests are arriving...
 
-**Assignment 2-1**.  
+#### Assignment 2-1
 John likes to drink *Cosmopolitan*. Tell him do you have this cocktail in your inventory.
 
 *Hint: To search in an index (or index/type) you can use _search API - Search "lite" query. 
@@ -102,14 +102,14 @@ The query looks like this:*
 **Expected result**: Yes, the Cosmopolitan is on the menu (only 1 result found).
  
  
-**Assignment 2-2**.  
+#### Assignment 2-2
 Vanessa had a bad day and is asking something containing *tequila*. You should 
 tell offer her all cocktails containing *tequila* (within its `ingredients`).
  
 **Expected result**: There are two cocktails: Margarita and Black Widow.
  
  
-**Assignment 2-3**.  
+#### Assignment 2-3
 James would like to drink something containing **orange** or **cranberry**.
   
 *Hint: To match multiple values on a field, write them in brackets, separated by space.   
@@ -119,7 +119,7 @@ E.g. `?q=field:(value1 value2)`*
 Sex on the Beach, Dry Martini, Cosmopolitan and Margarita
   
    
-**Assignment 2-4**.  
+#### Assignment 2-4
 Elizabeth would like to drink something containing **vodka** but does not like **cranberry**.
  
 *Hint: To specify that a field must have some value add plus (+) in front of the value. Analogous, 
@@ -130,7 +130,7 @@ E.g. `?q=field:(+must_have_value -must_NOT_have_value)`*
 Bloody Mary, Dirty Martini, Blue Lagoon
 
 
-**Assignment 2-5**.  
+#### Assignment 2-5
 Elizabeth has additional request. She would like to drink something containing **vodka** 
 and does not contain **cranberry** (as in the previous assignment) but she prefers to have 
 something also containing **lemonade**, if possible.
@@ -142,7 +142,7 @@ Bloody Mary, Dirty Martini, Blue Lagoon. But, the difference is the order of the
 This time Blue Lagoon is at the top (it is the most relevant result, based on the given search criteria).
 
 
-**Assignment 2-6**.  
+#### Assignment 2-6
 Patricia successfully finished a project today and would like to have some cocktail with 
 **whiskey** (ingredients) and a **cherry** on top (garnish).
 
@@ -155,7 +155,7 @@ E.g. `?q=%2B<field_name1>:<value(s)> %2B<field_name2>:<value(s)>`*
 **Expected result**: Only one result should be returned: Manhattan.
 
 
-**Assignment 2-7**.  
+#### Assignment 2-7
 Robert, who is not a guest but a bar owner (and you boss), asked you to add a new cocktail on the menu.
 
 Hear are the details:   

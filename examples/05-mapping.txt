@@ -121,6 +121,8 @@ GET my_index/_search
 # Multi-fields with multiple analyzers
 # The text field uses the standard analyzer
 # The text.english field uses the english analyzer
+DELETE my_index
+
 PUT my_index
 {
   "mappings": {
