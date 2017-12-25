@@ -24,6 +24,10 @@ to match the document by any word in the field)
 * `author_email` should match only by complete email (complete phrase)
 * `tags` - individual tags should be searched by phrase
 
+The blog articles are stored in a relation database. You have to create an index
+named `blog` (use index type `articles`) with the index fields as defined above. Datatypes 
+used should best correspond to the "nature" of the each property data.
+
 
 #### Assignment 3-1
 
@@ -32,8 +36,8 @@ in your index define your custom tokenizer and analyzer.
 
 Name your custom analyzer as: `comma-delimited-analyzer`
 
-* Hint: You can use "pattern tokenizer". 
-See details on this [link](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-pattern-tokenizer.html)*
+*Hint: You can use "pattern tokenizer". See details on this 
+[link](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-pattern-tokenizer.html).*
 
 
 **Expected result**: 
@@ -50,24 +54,22 @@ You should get 3 tokens: `java`, `spring-boot` and `elasticsearch`
 
 #### Assignment 3-2
 
-The blog articles are stored in a relation database. You have to create an index
-named `blog` (use index type `articles`) with the index fields as defined above. Datatypes 
-used should best correspond to the "nature" of the each property data.
+Define filed mapping are required.
 
 *Hint: Use a help of [Example Mapping](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html#_example_mapping)
 documentation from the Elastic website.*
 
 *Hint 2: Since texts are in English, think of how this data should be indexed (analyzed),
-so it can be more searchable.*
+so it can be better searchable.*
 
 *Hint 3: When defining the types of textual properties, take into the consideration
-which should be full-text searchable and which should be searchable by phrase. 
+which should be full-text searchable and which should be searchable by complete phrase only. 
 See [Core Datatypes](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html#_core_datatypes)
 from the official documentation.*
 
 *Hint 4: For mapping creation use*: 
 ```javascript
-PUT blog/_mapping/articles`
+PUT blog/_mapping/articles
 {
   "properties" : {
     "field_name" : {
@@ -123,6 +125,5 @@ an article with the title "Elasticsearch with Spring Data"
 1. Execute `GET blog/articles/_search?q=publish_date:>2017-12-01` -  you should get *2 results*,
 with articles which publish date is in December 2017
 1. Execute `GET blog/articles/_search?q=title:refactor` - you should get *1 result*
-1. Execute `GET blog/articles/_search?q=article_text:(%2Bsolution+%2Belasticsearch)`
-- you should get *1 result*
+1. Execute `GET blog/articles/_search?q=article_text:(%2Bsolution+%2Belasticsearch)` - you should get *1 result*
 
