@@ -1,10 +1,6 @@
 # Insert some test data
 # into two different indexes
 POST /_bulk
-{ "create": { "_index": "us", "_type": "user", "_id": "1" }}
-{ "email" : "john@smith.com", "name" : "John Smith", "username" : "@john" }
-{ "create": { "_index": "gb", "_type": "user", "_id": "2" }}
-{ "email" : "mary@jones.com", "name" : "Mary Jones", "username" : "@mary" }
 { "create": { "_index": "gb", "_type": "tweet", "_id": "3" }}
 { "date" : "2014-09-13", "name" : "Mary Jones", "tweet" : "Elasticsearch means full text search has never been so easy", "user_id" : 2 }
 { "create": { "_index": "us", "_type": "tweet", "_id": "4" }}
@@ -52,19 +48,6 @@ GET /gb,us/_search
 
 # Search all types in any indices beginning with g or beginning with u
 GET /g*,u*/_search
-
-
-# Search type user in the gb index
-GET /gb/user/_search
-
-
-# Search types user and tweet in the gb and us indices
-GET /gb,us/user,tweet/_search
-
-
-# Search types user and tweet in all indices
-GET /_all/user,tweet/_search
-
 
 # PAGINATION
 GET /_search?size=5

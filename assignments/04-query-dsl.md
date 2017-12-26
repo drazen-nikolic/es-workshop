@@ -78,9 +78,9 @@ Find tweets containing either of these words: *java* *website*
 
 By using `bool` query, find tweets satisfying next criteria:
 * the `tweet_text` must contain *java*
-* the `tweet_text` must NOT contain word *aurduino*
+* the `tweet_text` must NOT contain word *arduino*
 
-**Expected result**: 3 found tweets
+**Expected result**: 1 found tweet
 
 
 #### Assignment 4-4
