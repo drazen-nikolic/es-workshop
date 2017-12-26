@@ -10,7 +10,7 @@ As an IT guy working in a bank, except restarting the servers from time to time,
 on workstations and explaining that guy for the 5th time how to use a shared folder, at the end of the year
 you get some additional tasks to generate different reports for the upper management.
 
-The bank would like to start with a new credit loan campaign but they are unsure which age group 
+The bank would like to start a new credit loan campaign but they are unsure which age group 
 they should target. In other words, the age group having lower average account balance is more
 likely to need to get a loan.
 
@@ -66,7 +66,7 @@ Age groups definition:
 
 *Hint 2: Aggregation values can be found at the bottom of the result JSON. 
 If you are not interested in the results but just in aggregation values, add `"size" : 0` 
-to the search request. *
+to the search request.*
 
 **Expected result**: 
 
