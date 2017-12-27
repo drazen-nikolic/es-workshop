@@ -80,7 +80,7 @@ Create the query which will return all the products from the `category` of "shoe
 make Nike brand should to appear at the top of the results.
 
 *Hint: Check this [link](https://www.elastic.co/guide/en/elasticsearch/guide/current/_boosting_query_clauses.html)
-for an example of booting query.*
+for an example of boosting query.*
 
 **Expected result**: 4 product returned (category "shoes"). First two are Nike products.
 
