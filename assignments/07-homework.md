@@ -35,7 +35,7 @@ Your task is to implement Full-text Search Feature for this company portal.
 Users should be able to search messages by username as: give me all messages this user has sent
 in the given period (date-from, date-to). Dates will be sent as text in a ISO 8601 format, like: "2017-12-25".
 
-2
+2  
 Users should be able to search `messages_text` by an arbitrary string - give me all messages containing 
 a specific "search text" in a message text.   
 The search should be "full-text" search and consider different word forms, synonyms etc.  
