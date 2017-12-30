@@ -7,6 +7,5 @@ import org.springframework.data.elasticsearch.annotations.Query;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
 public interface IndexedMessageRepository extends ElasticsearchRepository<IndexedMessage, Long> {
-  @Query("{\"bool\": {\"must\": [{\"match\": {\"username\": \"?0\"}}, {\"range\": {\"date\": {\"gte\" :\"?1\"}}}]}}")
-  List<IndexedMessage> findByUsernameInPeriod(String name, Date dateFrom, Date dateTo);
+
 }

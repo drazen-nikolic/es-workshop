@@ -1,5 +1,8 @@
 package com.seavus.workshop.elasticsearch;
 
+import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertThat;
+
 import com.seavus.workshop.elasticsearch.search.domain.IndexedMessage;
 import com.seavus.workshop.elasticsearch.search.service.Search;
 import java.time.LocalDate;
@@ -23,8 +26,34 @@ public class SearchUsersTest {
     search.reindex();
     LocalDate from = LocalDate.of(2012, 5, 1);
     LocalDate to = LocalDate.of(2018, 5, 1);
-    List<IndexedMessage> users = search.searchByUsername("laura peterson", convert(from), convert(to));
+    List<IndexedMessage> users = search.searchByUsername("chandler", convert(from), convert(to));
+    assertThat(users.size(), is(3));
     users.forEach(System.out::println);
+  }
+
+  @Test
+  public void testSearchByUsernamePhrase() {
+    String username = "laura peterson";
+    search.reindex();
+    LocalDate from = LocalDate.of(2012, 5, 1);
+    LocalDate to = LocalDate.of(2018, 5, 1);
+    List<IndexedMessage> users = search.searchByUsername(username, convert(from), convert(to));
+    assertThat(users.size(), is(1));
+    assertThat(users.get(0).getUsername(), is(username));
+    users.forEach(System.out::println);
+  }
+
+  @Test
+  public void testSearchByUsernameAndDatePeriod() {
+    String username = "chandler";
+    search.reindex();
+    LocalDate from = LocalDate.of(2017, 9, 1);
+    LocalDate to = LocalDate.of(2017, 9, 30);
+    List<IndexedMessage> users = search.searchByUsername(username, convert(from), convert(to));
+    assertThat(users.size(), is(2));
+    users.forEach(u -> assertThat(u.getUsername(), is(username)));
+    users.forEach(u -> assertThat(u.getDate(), is(greaterThan(convert(from)))));
+    users.forEach(u -> assertThat(u.getDate(), is(lessThan(convert(to)))));
   }
 
   private Date convert(LocalDate localDate) {

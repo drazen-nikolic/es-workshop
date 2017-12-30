@@ -25,6 +25,7 @@ public class SearchImpl implements Search {
 
   @Override
   public void reindex() {
+    // TODO-4: Implement logic for reindexing data from relational database to Elasticsearch index
     indexRepository.deleteAll();
     List<Message> allMessages = messageService.getAllMessages();
     allMessages.stream()
@@ -33,12 +34,9 @@ public class SearchImpl implements Search {
   }
 
   @Override
-  public List<IndexedMessage> getAll() {
-    return Lists.newArrayList(indexRepository.findAll());
-  }
-
-  @Override
   public List<IndexedMessage> searchByUsername(String username, Date dateFrom, Date dateTo) {
+    // TODO-5: By using NativeSearchQueryBuilder build the Elasticsearch query
+    //         and get results via elasticsearchTemplate
     SearchQuery searchQuery = new NativeSearchQueryBuilder()
         .withQuery(boolQuery().must(matchQuery("username", username))
               .must(rangeQuery("date").from(dateFrom).to(dateTo)))
@@ -48,6 +46,8 @@ public class SearchImpl implements Search {
 
   @Override
   public List<IndexedMessage> searchMessageTexts(String searchString) {
+    // TODO-6: By using NativeSearchQueryBuilder build the Elasticsearch query
+    //         to filter indexed messages as specified by the requirements
     SearchQuery searchQuery = new NativeSearchQueryBuilder()
         .withQuery(boolQuery().must(matchQuery("text", searchString))
             .should(matchPhraseQuery("text", searchString))
@@ -65,6 +65,18 @@ public class SearchImpl implements Search {
     return indexedMessage;
   }
 
+  @Override
+  public List<IndexedMessage> getAll() {
+    return Lists.newArrayList(indexRepository.findAll());
+  }
+
+  /**
+   * Converts {@link LocalDateTime} to {@link Date}.
+   *
+   * @param localDateTime An instance of {@code java.time.LocalDateTime}.
+   *
+   * @return {@code java.util.Data} instance.
+   */
   private Date convert(LocalDateTime localDateTime) {
     return Date.from(localDateTime.toLocalDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
   }

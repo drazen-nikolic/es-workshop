@@ -24,13 +24,19 @@ public class ReindexTest {
   @Test
   public void testReindex() {
     search.reindex();
-    assertThat(search.getAll().size(), is(1));
+    assertThat(search.getAll().size(), is(10));
+  }
+
+  @Test
+  public void testReindexShouldClearIndexBefore() {
+    search.reindex();
+    assertThat(search.getAll().size(), is(10));
 
     // index arbitrary message - reindex should clear the index on reindexing
     IndexedMessage indexedMessage = new IndexedMessage();
     indexedMessage.setText("eee");
     indexedMessageRepository.save(indexedMessage);
     search.reindex();
-    assertThat(search.getAll().size(), is(1));
+    assertThat(search.getAll().size(), is(10));
   }
 }
