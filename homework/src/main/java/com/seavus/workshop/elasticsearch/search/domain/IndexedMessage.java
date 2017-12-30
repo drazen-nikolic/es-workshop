@@ -15,15 +15,15 @@ public class IndexedMessage {
   private Long id;
 
   // TODO-1 - populate proper @Field attributes
-  @Field(type = FieldType.String, index = FieldIndex.not_analyzed)
+  @Field
   private String username;
 
   // TODO-2 - populate proper @Field attributes
-  @Field(type = FieldType.String, index = FieldIndex.analyzed, analyzer = "english")
+  @Field
   private String text;
 
   // TODO-3 - populate proper @Field attributes
-  @Field(type = FieldType.Date)
+  @Field
   private Date date;
 
 }
