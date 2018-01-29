@@ -42,7 +42,7 @@ in the given period (date-from, date-to). Dates will be sent as text in a ISO 86
 Users should be able to search `messages_text` by an arbitrary string - give me all messages containing 
 a specific "search text" in a message text.   
 The search should be "full-text" search and consider different word forms, synonyms etc.  
-**All messages are written in English.  **
+**All messages are written in English.**
 
 If there are multiple words in the "search text", match all messages containing at least one word. 
 Additionally, messages containing the exact phrase should be positioned at the top of the search result.
