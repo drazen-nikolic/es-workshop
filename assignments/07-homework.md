@@ -42,7 +42,7 @@ in the given period (date-from, date-to). Dates will be sent as text in a ISO 86
 Users should be able to search `messages_text` by an arbitrary string - give me all messages containing 
 a specific "search text" in a message text.   
 The search should be "full-text" search and consider different word forms, synonyms etc.  
-All messages are written in English.  
+**All messages are written in English.  **
 
 If there are multiple words in the "search text", match all messages containing at least one word. 
 Additionally, messages containing the exact phrase should be positioned at the top of the search result.
@@ -88,8 +88,8 @@ you'll have to use old field types.
 
 |new|old|
 |---|---|
-|field type: `keyword`|field type: `string`; indexed=`not_analyzed`|
-|field type: `text`|field type: `string`; indexed=`analyzed`|
+|field type: `keyword`|field type: `string`; index=`not_analyzed`|
+|field type: `text`|field type: `string`; index=`analyzed`|
 
 **What do to:**   
 
@@ -129,6 +129,8 @@ than messages containing only a single word.
 1. Implement `SearchImpl.searchMessageTexts()` method body
 1. Repeat running `SearchMessagesTest` and fixing code in `SearchImpl` until all tests pass
 (all tests are green). 
+
+IMPORTANT: Do not use wildcards (*) in a query.
 
 When all steps are finished, run again all tests. All should pass.
 
