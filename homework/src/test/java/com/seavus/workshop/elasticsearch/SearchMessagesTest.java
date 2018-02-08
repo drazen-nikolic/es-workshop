@@ -27,13 +27,13 @@ public class SearchMessagesTest {
   @Test
   public void testSearch() {
     List<IndexedMessage> foundMessages = search.searchMessageTexts("fox");
-    assertThat(foundMessages.size(), is(2));
+    assertThat(foundMessages.size(), is(3));
   }
   @Test
   public void testSearchPhrase() {
     List<IndexedMessage> foundMessages = search.searchMessageTexts("my foxes");
-//    assertThat(foundMessages.size(), is(2));
-    assertThat(foundMessages.get(0).getText(), is("All my foxes are out on the street! :)"));
+    assertThat(foundMessages.size(), is(4));
     foundMessages.forEach(System.out::println);
+    assertThat(foundMessages.get(0).getText(), is("All my foxes are out on the street! :)"));
   }
 }

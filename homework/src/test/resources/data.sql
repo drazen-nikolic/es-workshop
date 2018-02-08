@@ -1,10 +1,10 @@
 INSERT INTO user_messages (id, username, time, text) VALUES (1, 'chandler', '2017-09-17 18:47:52.00', 'Hi there!');
-INSERT INTO user_messages (id, username, time, text) VALUES (2, 'carmen', '2017-09-17 18:49:00.00', 'I won''t be able to make it. I''ll be in a meeting');
-INSERT INTO user_messages (id, username, time, text) VALUES (3, 'chandler', '2017-09-18 18:47:52.00', 'I would like to add something great the **agenda**.');
+INSERT INTO user_messages (id, username, time, text) VALUES (2, 'carmen', '2017-09-17 18:47:52.00', 'I won''t be able to make it. I''ll be in a meeting');
+INSERT INTO user_messages (id, username, time, text) VALUES (3, 'chandler', '2017-09-17 18:47:52.00', 'I would like to add something great the **agenda**.');
 INSERT INTO user_messages (id, username, time, text) VALUES (4, 'mary', '2017-09-17 18:47:52.00', 'The company party last night was the greatest so far :)');
 INSERT INTO user_messages (id, username, time, text) VALUES (5, 'chandler', '2017-10-20 10:15:22.00', 'Someone has problems with this new Fox reader?');
 INSERT INTO user_messages (id, username, time, text) VALUES (6, 'carmen', '2017-10-20 10:16:10.00', 'All my foxes are out on the street! :)');
 INSERT INTO user_messages (id, username, time, text) VALUES (7, 'laura peterson', '2017-09-17 18:47:52.00', 'this is my message!');
-INSERT INTO user_messages (id, username, time, text) VALUES (8, 'ci-server', '2017-12-10 12:15:00.00', 'Application 1 is successfully built and deployed to integration server !');
-INSERT INTO user_messages (id, username, time, text) VALUES (9, 'rogers55', '2017-12-15 09:10:00.00', 'Me and my bed are perfect for each other, but my alarm clock keeps trying to break us up.');
-INSERT INTO user_messages (id, username, time, text) VALUES (10, 'sandra', '2017-12-17 11:10:0.00', 'Guys, please, Sprint Planning, Room 5');
+INSERT INTO user_messages (id, username, time, text) VALUES (8, 'user1', '2017-09-17 18:47:52.00', 'My new fox');
+INSERT INTO user_messages (id, username, time, text) VALUES (9, 'user2', '2017-09-17 18:50:10.00', 'hello!');
+INSERT INTO user_messages (id, username, time, text) VALUES (10, 'user1', '2017-09-17 18:55:00.00', 'Hey there!');
