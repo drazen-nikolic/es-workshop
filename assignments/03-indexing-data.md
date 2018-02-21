@@ -100,7 +100,7 @@ as you've just created
 
 #### Assignment 3-3
 
-Index some data and validate it is correct indexed:
+Index some data and validate it is correctly indexed:
 1. index blog articles by executing this pre-prepared query:
     ```javascript
     POST blog/articles/_bulk?refresh
