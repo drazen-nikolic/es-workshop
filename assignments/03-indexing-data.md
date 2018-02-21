@@ -54,7 +54,7 @@ You should get 3 tokens: `java`, `spring-boot` and `elasticsearch`
 
 #### Assignment 3-2
 
-Define filed mapping are required.
+Define filed mapping as required.
 
 *Hint: Use a help of [Example Mapping](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html#_example_mapping)
 documentation from the Elastic website.*
