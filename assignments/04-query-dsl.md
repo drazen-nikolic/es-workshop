@@ -104,6 +104,6 @@ only 2 tweets should be in result.
 #### Assignment 4-6
 
 Create `bool` query to match all tweets having a word *thing* but first filter
-the tweets from year 2016.
+the tweets from year 2016 only.
 
 **Expected result**: 1 tweet found.
