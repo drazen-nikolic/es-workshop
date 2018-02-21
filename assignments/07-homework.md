@@ -83,7 +83,7 @@ Note also that the search requirements consider searching messages by time in a 
 so index time information accordingly. 
 
 IMPORTANT:
-Since the official Release of Spring Data Elasticsearch is using old version of Elsticsearch
+Since the official Release of Spring Data Elasticsearch is using old version of Elasticsearch
 you'll have to use old field types. 
 
 |new|old|
