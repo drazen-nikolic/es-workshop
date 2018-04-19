@@ -57,7 +57,7 @@ If there are multiple words in the "search text", match all messages containing 
 
 Analyze the documentation for your client library and create a simple project, which includes required Elasticsearch client API dependencies. 
 
-For each functionality you are implementing, create different buttons and some other way you would be able to trigger them (so you can later validate with "Expected results").
+For each functionality you are implementing, create few simple forms with buttons or some other way you would be able to trigger them (so you can later validate with "Expected results").
 
 #### Part 2 - Implement relational database mock repository
 
@@ -85,10 +85,10 @@ In order not to complicate things too much, make a simple relational database mo
 #### Part 3 - Index mapping
 
 Analyze data types and how each field should be mapped in Elasticsearch index. The fields in index should be named as:
-* id
-* username
-* date
-* message_text
+* `id`
+* `username`
+* `date`
+* `message_text`
 
 Note also that the search requirements consider searching messages by time in a "resolution" of a single day, so index time information accordingly. 
 
