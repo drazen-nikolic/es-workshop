@@ -52,6 +52,7 @@ PUT shop
       }
     }
   }
+}
 ```
 
 Execute next `_bulk` query to index some products:
