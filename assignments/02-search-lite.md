@@ -90,7 +90,7 @@ The indexed documents has all fields of type `text` and their descriptions are a
 ### Guests are arriving...
 
 #### Assignment 2-1
-John likes to drink *Cosmopolitan*. Tell him do you have this cocktail in your inventory.
+Jane likes to drink *Cosmopolitan*. Tell her do you have this cocktail in your inventory.
 
 *Hint: To search in an index (or index/type) you can use _search API - Search "lite" query. 
 The query looks like this:*
