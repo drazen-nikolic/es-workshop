@@ -55,11 +55,11 @@ GET /_search?size=5&from=5
 GET /_search?size=5&from=10
 
 
-# SEARCH LIGHT
+# SEARCH LITE
 GET /_all/tweet/_search?q=tweet:elasticsearch
 
 
-# Search Light Query (URL encoded):
+# Search Lite Query (URL encoded):
 # +name:john +tweet:mary
 GET /_search?q=%2Bname%3Ajohn+%2Btweet%3Amary
 
