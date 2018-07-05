@@ -21,7 +21,7 @@ GET companydatabase/employees/_mapping
 
 # Search Lite
 # Find all female employees, sort by age ascending, return top 5
-GET /companydatabase/_search?q=Gender:female&pretty&sort=Age:asc&size=5
+GET /companydatabase/_search?q=Gender:female&sort=Age:asc&size=5
 
 # Example using CURL (without pretty parameter):
 # curl -XGET 'http://localhost:9200/companydatabase/_search?q=Gender:female&sort=Age:asc&size=5'
